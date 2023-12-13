@@ -11,7 +11,7 @@ char* find_executable(char *command)
 		snprintf(full_path, sizeof(full_path), "%s/%s", path, command);
 		if (access(full_path, F_OK) == 0)
 		{
-			return strdup(full_path);
+			return _strdup(full_path);
 		}
 		path = strtok(NULL, ":");
 	}
