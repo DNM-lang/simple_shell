@@ -20,4 +20,6 @@ void print_environment_variables(void);
 void customized_exit(void);
 void customize__exit(int status);
 char *find_executable_file(char *command);
+char *_strdup(char *s);
+int _strcmp(char *s1, char *s2);
 #endif

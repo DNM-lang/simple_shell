@@ -6,7 +6,7 @@
  * Return: Null
  */
 
-char *find_executablefile(char *command)
+char *find_executable_file(char *command)
 {
 	char *path_env = getenv("PATH");
 	char *path = strtok(path_env, ":");
