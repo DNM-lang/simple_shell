@@ -18,26 +18,26 @@ void execute_command(char *input)
 	}
 	else
 	{
-		printf("No command entered.\n");
+		printf("Command not entered.\n");
 	}
 }
 void execute_builtin(char *command)
 {
-	if (strcmp(command, "exit") == 0)
+	if (_strcmp(command, "exit") == 0)
 	{
 		custom_exit();
 	}
-	else if (strcmp(command, "env") == 0)
+	else if (_strcmp(command, "env") == 0)
 	{
 		print_environment();
 	}
 	else
 	{
-		printf("Unknown built-in command: %s\n", command);
+		printf("Built-in command unknown: %s\n", command);
 	}
 }
 void custom_exit() {
-	printf("Exiting shell. Goodbye!\n");
+	printf("Exiting shell \n");
 	exit(EXIT_SUCCESS);
 }
 void custom__exit(int status)
