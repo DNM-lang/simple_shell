@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * executable command - executes a command
+ * executable_command - executes a command
  * @input: input
  */
 
@@ -10,7 +10,7 @@ void executable_command(char *input)
 	char *args[MAX_INPUT_SIZE];
 	int i = 0;
 	char *token = strtok(input, " \n");
-	
+
 	while (token != NULL)
 	{
 		args[i++] = token;
@@ -31,10 +31,10 @@ void executable_command(char *input)
  * customized_exit - print farewll message
  */
 
- void customized_exit(void) 
+void customized_exit(void)
 {
-        printf("Exiting shell. BYe \n");
-        exit(EXIT_SUCCESS);
+	printf("Exiting shell, bye \n");
+	exit(EXIT_SUCCESS);
 }
 
 /**

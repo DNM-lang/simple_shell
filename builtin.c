@@ -9,7 +9,7 @@ void executable_builtin(char *command)
 {
 	if (_strcmp(command, "exit") == 0)
 	{
-		custom_exit();
+		customized_exit();
 	}
 	else if (_strcmp(command, "env") == 0)
 	{
@@ -34,5 +34,3 @@ void print_environment_variables(void)
 		printf("%s\n", *env);
 	}
 }
-
-

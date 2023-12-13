@@ -12,13 +12,12 @@
 
 void display_prompt();
 void execute_command(char *input);
-void custom_access(char *path, int mode);
-void custom_chdir(char *path);
-void custom_close(int fd);
-void custom_exit();
-void execute_builtin(char *command);
-void print_environment();
-void custom_exit(int status);
-void custom__exit(int status);
-char* find_executable(char *command);
+void customized_access(char *path, int mode);
+void customized_chdir(char *path);
+void customized_close(int fd);
+void executable_builtin(char *command);
+void print_environment_variables(void);
+void customized_exit(void);
+void customize__exit(int status);
+char *find_executable_file(char *command);
 #endif
