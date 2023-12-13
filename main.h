@@ -9,9 +9,10 @@
 #include <sys/wait.h>
 
 #define MAX_INPUT_SIZE 1024
+extern char **environ;
 
 void display_prompt(void);
-void execute_command(char *input);
+void executable_command(char *input);
 void customized_access(char *path, int mode);
 void customized_chdir(char *path);
 void customized_close(int fd);

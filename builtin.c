@@ -27,9 +27,9 @@ void executable_builtin(char *command)
 
 void print_environment_variables(void)
 {
-	char **environ;
+	char **env;
 
-	for (char **env = environ; *env != NULL; env++)
+	for (env = environ; *env != NULL; env++)
 	{
 		printf("%s\n", *env);
 	}

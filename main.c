@@ -7,10 +7,10 @@
 
 int main(void)
 {
+	display_prompt();
+
 	while (1)
 	{
-		display_prompt();
-
 		char input[MAX_INPUT_SIZE];
 
 		if (fgets(input, sizeof(input), stdin) == NULL)
@@ -19,7 +19,8 @@ int main(void)
 			break;
 		}
 		input[strcspn(input, "\n")] = '\0';
-		execute_command(input);
+		executable_command(input);
+		display_prompt();
 	}
 	return (0);
 }
