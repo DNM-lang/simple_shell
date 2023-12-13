@@ -1,9 +1,11 @@
 #include "main.h"
 
 /**
- * executable command - executes a bu
+ * executable command - executes a command
+ * @input: input
+ */
 
-void execute_command(char *input)
+void executable_command(char *input)
 {
 	char *args[MAX_INPUT_SIZE];
 	int i = 0;
@@ -17,42 +19,30 @@ void execute_command(char *input)
 	args[i] = NULL;
 	if (i > 0)
 	{
-		execute_builtin(args[0]);
+		executable_builtin(args[0]);
 	}
 	else
 	{
 		printf("Command not entered.\n");
 	}
 }
-void execute_builtin(char *command)
+
+/**
+ * customized_exit - print farewll message
+ */
+
+ void customized_exit(void) 
 {
-	if (_strcmp(command, "exit") == 0)
-	{
-		custom_exit();
-	}
-	else if (_strcmp(command, "env") == 0)
-	{
-		print_environment();
-	}
-	else
-	{
-		printf("Built-in command unknown: %s\n", command);
-	}
+        printf("Exiting shell. BYe \n");
+        exit(EXIT_SUCCESS);
 }
-void custom_exit() {
-	printf("Exiting shell \n");
-	exit(EXIT_SUCCESS);
-}
-void custom__exit(int status)
+
+/**
+ * customize__exit - terminates program
+ * @status: exit status of process
+ */
+
+void customize__exit(int status)
 {
 	_exit(status);
-}
-void print_environment()
-{
-	extern char **environ;
-	
-	for (char **env = environ; *env != NULL; env++)
-	{
-		printf("%s\n", *env);
-	}
 }
