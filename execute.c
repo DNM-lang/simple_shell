@@ -23,7 +23,7 @@ void executable_command(char *input)
 	}
 	else
 	{
-		printf("Command not entered.\n");
+		printf("Command has not been entered.\n");
 	}
 }
 
