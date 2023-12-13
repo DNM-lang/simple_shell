@@ -7,25 +7,46 @@
 
 void executable_command(char *input)
 {
-	char *args[MAX_INPUT_SIZE];
-	int i = 0;
-	char *token = strtok(input, " \n");
-
-	while (token != NULL)
+	if (_strcmp(input, "exit") == 0)
 	{
-		args[i++] = token;
-		token = strtok(NULL, " \n");
-	}
-	args[i] = NULL;
-	if (i > 0)
-	{
-		executable_builtin(args[0]);
+		printf("$\n");
+		exit(EXIT_SUCCESS);
 	}
 	else
 	{
-		printf("Command has not been entered.\n");
+		executed_command(input);
 	}
 }
+
+/**
+ * executed_command - executes commands
+ * @command: command to be executed
+ */
+
+void executed_command(char *command)
+{
+	pid_t our_pid = fork();
+
+	if (our_pid == -1)
+	{
+		perror("fork");
+		exit(EXIT_FAILURE);
+	}
+
+	if (our_pid == 0)
+	{
+		execlp("/bin/sh", "/bin/sh", "-c", command, (char *)NULL);
+		perror("execlp");
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		int status;
+
+		waitpid(pid, &status, 0);
+	}
+}
+
 
 /**
  * customized_exit - print farewll message
@@ -33,7 +54,7 @@ void executable_command(char *input)
 
 void customized_exit(void)
 {
-	printf("Exiting shell, bye \n");
+	printf("$ \n");
 	exit(EXIT_SUCCESS);
 }
 
