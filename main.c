@@ -2,25 +2,34 @@
 
 /**
  * main - main
+ * @argc: arg counter
+ * @argv: arg vector
  * Return: 0
  */
 
-int main(void)
+int main(int argc, char *argv[])
 {
-	display_prompt();
-
-	while (1)
+	if (argc == 1)
 	{
-		char input[MAX_INPUT_SIZE];
+		pliz_interact_mode();
+	}
+	else if (argc == 2)
+	{
+		FILE *file = fopen(argv[1], "r");
 
-		if (fgets(input, sizeof(input), stdin) == NULL)
+		if (file == NULL)
 		{
-			printf("\nExiting shell. Bye!\n");
-			break;
+
+			perror("Error opening file");
+			exit(EXIT_FAILURE);
 		}
-		input[strcspn(input, "\n")] = '\0';
-		executable_command(input);
-		display_prompt();
+		dont_interact_mode(file);
+		fclose(file);
+	}
+	else
+	{
+		fprintf(stderr, "Usage: %s [script]\n", argv[0]);
+		exit(EXIT_FAILURE);
 	}
 	return (0);
 }
