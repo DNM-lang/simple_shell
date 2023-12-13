@@ -1,6 +1,12 @@
 #include "main.h"
 
-char* find_executable(char *command)
+/**
+ * find_executablefile - find executable file
+ * @command: command
+ * Return: Null
+ */
+
+char *find_executablefile(char *command)
 {
 	char *path_env = getenv("PATH");
 	char *path = strtok(path_env, ":");
@@ -8,13 +14,13 @@ char* find_executable(char *command)
 	while (path != NULL)
 	{
 		char full_path[MAX_INPUT_SIZE];
+
 		snprintf(full_path, sizeof(full_path), "%s/%s", path, command);
 		if (access(full_path, F_OK) == 0)
 		{
-			return _strdup(full_path);
+			return (_strdup(full_path));
 		}
 		path = strtok(NULL, ":");
 	}
-	return NULL;
+	return (NULL);
 }
-
