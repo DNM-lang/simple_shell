@@ -1,5 +1,8 @@
 #include "main.h"
 
+/**
+ * executable command - executes a bu
+
 void execute_command(char *input)
 {
 	char *args[MAX_INPUT_SIZE];

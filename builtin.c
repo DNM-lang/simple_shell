@@ -1,6 +1,11 @@
 #include "main.h"
 
-void execute_builtin(char *command)
+/**
+ * executable_builtin - executes built in command
+ * @command: built in command to be executed
+ */
+
+void executable_builtin(char *command)
 {
 	if (_strcmp(command, "exit") == 0)
 	{
@@ -8,19 +13,23 @@ void execute_builtin(char *command)
 	}
 	else if (_strcmp(command, "env") == 0)
 	{
-		print_environment();
+		print_environment_variables();
 	}
 	else
 	{
-		printf("Unknown built-in command: %s\n", command);
+		printf("Built-in command unknown: %s\n", command);
 	}
 }
 
-void print_environment(void)
-{
-	extern char** environ;
+/**
+ * print_environment_variables - current enviroment variables
+ */
 
-	for (char** env = environ; *env != NULL; env++)
+void print_environment_variables(void)
+{
+	char **environ;
+
+	for (char **env = environ; *env != NULL; env++)
 	{
 		printf("%s\n", *env);
 	}
