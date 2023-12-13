@@ -2,7 +2,12 @@
 #include <stdio.h>
 #include "main.h"
 
-void custom_chdir(char *path)
+/**
+ * customized_chdir - change the working directory to the specific path
+ * @path: string representing the file path that you want to check accesibility
+ */
+
+void customized_chdir(char *path)
 {
 	if (chdir(path) == -1)
 	{
