@@ -25,8 +25,7 @@ void pliz_interact_mode(void)
 	exit(EXIT_SUCCESS);
 	}
 
-	execute_command(input);
+	executed_command(input);
 	free(input);
+	}
 }
-
-

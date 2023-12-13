@@ -7,9 +7,12 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <stdbool.h>
 
 #define MAX_INPUT_SIZE 1024
+
 extern char **environ;
+
 
 char *read_input(void);
 void display_prompt(void);

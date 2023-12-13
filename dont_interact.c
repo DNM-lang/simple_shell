@@ -28,7 +28,7 @@ void dont_interact_mode(FILE *file)
 			break;
 		}
 
-		execute_command(input);
+		executed_command(input);
 		free(input);
 	}
 }

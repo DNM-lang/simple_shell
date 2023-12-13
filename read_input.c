@@ -10,7 +10,7 @@ char *read_input(void)
 	char *line = NULL;
 	size_t length = 0;
 
-	if (getline(&line, &legthn, stdin) == -1)
+	if (getline(&line, &length, stdin) == -1)
 	{
 		free(line);
 		return (NULL);

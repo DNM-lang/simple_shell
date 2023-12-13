@@ -43,7 +43,7 @@ void executed_command(char *command)
 	{
 		int status;
 
-		waitpid(pid, &status, 0);
+		waitpid(our_pid, &status, 0);
 	}
 }
 
