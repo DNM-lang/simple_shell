@@ -23,3 +23,13 @@ int main(void)
 	}
 	return (0);
 }
+
+/**
+ * display_prompt - displays prompt message
+ */
+
+void display_prompt(void)
+{
+	printf("Shell prompt ");
+	fflush(stdout);
+}

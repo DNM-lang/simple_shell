@@ -10,7 +10,7 @@
 
 #define MAX_INPUT_SIZE 1024
 
-void display_prompt();
+void display_prompt(void);
 void execute_command(char *input);
 void customized_access(char *path, int mode);
 void customized_chdir(char *path);
