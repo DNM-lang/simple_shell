@@ -35,8 +35,21 @@ void executed_command(char *command)
 
 	if (our_pid == 0)
 	{
-		execlp("/bin/sh", "/bin/sh", "-c", command, (char *)NULL);
-		perror("execlp");
+		char *token = strtok(command, " ");
+		char **args = (char **)malloc(sizeof(char *));
+		int argCt = 0;
+
+		while (token != NULL)
+		{
+			args[argCt] = token;
+			argCt++;
+
+			args = (char **)realloc(args, (argCt + 1) * sizeof(char *));
+			token = strtok(NULL, " ");
+		}
+		args[argCt] = NULL;
+		execvp(args[0], args);
+		perror("Error executing command");
 		exit(EXIT_FAILURE);
 	}
 	else
