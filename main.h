@@ -13,7 +13,6 @@
 
 extern char **environ;
 
-
 char *read_input(void);
 void display_prompt(void);
 void executable_command(char *input);

@@ -1,7 +1,5 @@
 #include "main.h"
 
-bool is_interactive_mode = false;
-
 /**
  * main - main
  * @argc: arg counter
@@ -13,7 +11,6 @@ int main(int argc, char *argv[])
 {
 	if (argc == 1)
 	{
-		is_interactive_mode = true;
 		pliz_interact_mode();
 	}
 	else if (argc == 2)
@@ -43,9 +40,6 @@ int main(int argc, char *argv[])
 
 void display_prompt(void)
 {
-	if (is_interactive_mode)
-		printf("($) ");
-	else
-		printf("$ ");
+	printf("($) ");
 	fflush(stdout);
 }
