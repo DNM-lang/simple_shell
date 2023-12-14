@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * find_executablefile - find executable file
+ * find_executable_file - find executable file
  * @command: command
  * Return: Null
  */
