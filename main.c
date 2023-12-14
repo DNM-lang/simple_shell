@@ -7,31 +7,23 @@
  * Return: 0
  */
 
-int main(int argc, char *argv[])
-{
-	if (argc == 1)
-	{
-		pliz_interact_mode();
-	}
-	else if (argc == 2)
-	{
-		FILE *file = fopen(argv[1], "r");
+int main() {
+    char input[MAX_INPUT_SIZE];
 
-		if (file == NULL)
-		{
+    while (1) {
+        display_prompt();
 
-			perror("Error opening file");
-			exit(EXIT_FAILURE);
-		}
-		dont_interact_mode(file);
-		fclose(file);
-	}
-	else
-	{
-		fprintf(stderr, "Usage: %s [script]\n", argv[0]);
-		exit(EXIT_FAILURE);
-	}
-	return (0);
+        if (fgets(input, sizeof(input), stdin) == NULL) {
+            printf("\n$\n");
+            break;
+        }
+
+        input[strcspn(input, "\n")] = '\0';
+        
+        executed_command(input);
+    }
+
+    return 0;
 }
 
 /**
@@ -40,6 +32,5 @@ int main(int argc, char *argv[])
 
 void display_prompt(void)
 {
-	printf("($) ");
-	fflush(stdout);
+	printf("$ ");
 }

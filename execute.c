@@ -25,26 +25,18 @@ void executable_command(char *input)
 
 void executed_command(char *command)
 {
-	pid_t our_pid = fork();
+	pid_t pid = fork();
 
-	if (our_pid == -1)
-	{
-		perror("fork");
-		exit(EXIT_FAILURE);
-	}
-
-	if (our_pid == 0)
-	{
-		execlp("/bin/sh", "/bin/sh", "-c", command, (char *)NULL);
-		perror("execlp");
-		exit(EXIT_FAILURE);
-	}
-	else
-	{
-		int status;
-
-		waitpid(our_pid, &status, 0);
-	}
+    if (pid == 0) {
+        execlp(command, command, (char *)NULL);
+        perror("Error");
+        exit(EXIT_FAILURE);
+    } else if (pid < 0) {
+        perror("Error");
+        exit(EXIT_FAILURE);
+    } else {
+        wait(NULL);
+    }
 }
 
 
