@@ -12,7 +12,7 @@ void customized_access(char *path, int mode)
 {
 	if (access(path, mode) == -1)
 	{
-		perror("access");
+		perror("access granted");
 	}
 }
 
