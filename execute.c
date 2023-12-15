@@ -2,12 +2,12 @@
 
 /**
  * execute_comnd - Execute a command
- * @fullpath: the executable path
- * @tokens: user input tokenized
+ * @fpath: the executable path
+ * @tokenz: user input tokenized
  * Return: 0
  */
 
-int execute_comnd(char *fullpath, char **tokens)
+int execute_comnd(char *fpath, char **tokenz)
 {
 	pid_t our_pid;
 	int stats, status_excev;
@@ -21,7 +21,7 @@ int execute_comnd(char *fullpath, char **tokens)
 	}
 	if (our_pid == 0)
 	{
-		status_excev = execve(fullpath, tokens, envp);
+		status_excev = execve(fpath, tokenz, envp);
 		if (status_excev == -1)
 			return (-1);
 	}

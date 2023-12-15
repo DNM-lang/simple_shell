@@ -22,16 +22,16 @@ void free_dub_point(char **array, unsigned int len)
  * @tokens: Tokenized user input
  * @path: path
  * @line: user input
- * @fullpath: full path
+ * @fpath: full path
  * @f: Flag indicating if fullpath was dynamically allocated
  */
 
-void free_allc_me(char **tokens, char *path, char *line, char *fullpath, int f)
+void free_allc_me(char **tokenz, char *path, char *line, char *fpath, int f)
 {
 	free(line);
 	free(path);
-	free(tokens);
+	free(tokenz);
 
 	if (f == 1)
-		free(fullpath);
+		free(fpath);
 }
