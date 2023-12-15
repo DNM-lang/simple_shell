@@ -16,7 +16,7 @@ int execute_comnd(char *fullpath, char **tokens)
 	our_pid = fork();
 	if (our_pid == -1)
 	{
-		errors(1);
+		err_msg(1);
 		exit(EXIT_FAILURE);
 	}
 	if (our_pid == 0)
