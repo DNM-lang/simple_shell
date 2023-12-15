@@ -13,7 +13,7 @@ int main(void)
 
 	while (TRUE)
 	{
-		pliz_interact(STDIN_FILENO, buf);
+		pliz_interact(STDIN_FILENO, buffer);
 		input = read_user_input(stdin);
 		if (_strcmp(input, "\n", 1) == 0)
 		{
@@ -36,7 +36,8 @@ int main(void)
 			continue;
 		if (built_stat == -1)
 			_exit(EXIT_SUCCESS);
-		fpath = which_path(tokenz[0], fpath, path);
+		path = env_var("PATH");
+		fpath = look_for_path(tokenz[0], fpath, path);
 		if (fpath == NULL)
 			fpath = tokenz[0];
 		else

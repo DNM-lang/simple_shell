@@ -18,7 +18,7 @@ char *env_var(const char *name)
 		env_len++;
 
 	env_cpy = NULL;
-	env_cpy = copy_env(env_cpy, env_len);
+	env_cpy = copy_env_var(env_cpy, env_len);
 	len = _strlen((char *)name);
 	while (env_cpy[i] != NULL)
 	{
@@ -40,7 +40,7 @@ char *env_var(const char *name)
 				err_msg(3);
 				return (NULL);
 			}
-			path = _strncpy(path, value);
+			path = _strncpy(path, val);
 			free_dub_point(env_cpy, env_len);
 			return (path);
 		}

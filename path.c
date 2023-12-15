@@ -13,7 +13,7 @@ char *look_for_path(char *command, char *fpath, char *path)
 	unsigned int comnd_len, p_len, o_len;
 	char *path_cpy, *token;
 
-	comnd_length = _strlen(command);
+	comnd_len = _strlen(command);
 	o_len = _strlen(path);
 	path_cpy = malloc(sizeof(char) * o_len + 1);
 	if (path_cpy == NULL)
@@ -21,7 +21,7 @@ char *look_for_path(char *command, char *fpath, char *path)
 		err_msg(3);
 		return (NULL);
 	}
-	_strcpy(path_cpy, path);
+	_strncpy(path_cpy, path);
 	token = strtok(path_cpy, ":");
 	if (token == NULL)
 		token = strtok(NULL, ":");
@@ -34,9 +34,9 @@ char *look_for_path(char *command, char *fpath, char *path)
 			err_msg(3);
 			return (NULL);
 		}
-		_strcpy(fpath, token);
+		_strncpy(fpath, token);
 		fpath[p_len] = '/';
-		_strcpy(fpath + p_len + 1, command);
+		_strncpy(fpath + p_len + 1, command);
 		fpath[p_len + comnd_len + 1] = '\0';
 		if (access(fpath, X_OK) != 0)
 		{
