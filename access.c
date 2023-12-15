@@ -1,6 +1,6 @@
 #include <unistd.h>
 #include <stdio.h>
-#include "main.h"
+#include "shell.h"
 
 /**
  * customized_access - checks whether a process can access a files

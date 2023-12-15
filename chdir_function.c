@@ -1,6 +1,6 @@
 #include <unistd.h>
 #include <stdio.h>
-#include "main.h"
+#include "shell.h"
 
 /**
  * customized_chdir - change the working directory to the specific path

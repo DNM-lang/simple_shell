@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 
 /**
  * pliz_interact_mode - interacts

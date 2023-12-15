@@ -1,6 +1,6 @@
 #include <unistd.h>
 #include <stdio.h>
-#include "main.h"
+#include "shell.h"
 
 /**
  * customized_close - close the specified path
