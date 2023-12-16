@@ -55,6 +55,7 @@ char *_strncpy(char *dest, char *src);
 int _strlen(char *s);
 char **tokens(char *s);
 char *read_user_input(FILE *fs);
+ssize_t customised_getline(FILE *fs, char **line, size_t *length)
 void pliz_interact(int fs, struct stat buffer);
 void _puts(char *s);
 int main(void);
