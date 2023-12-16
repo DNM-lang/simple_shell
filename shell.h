@@ -25,8 +25,8 @@ extern char **environ;
 
 typedef struct buiild_t
 {
-  char *name;
-  int (*p)(void);
+	char *name;
+	int (*p)(void);
 } buiild_t;
 
 /**
@@ -37,8 +37,8 @@ typedef struct buiild_t
 
 typedef struct list_s
 {
-  char *val;
-  struct list_s *next;
+	char *val;
+	struct list_s *next;
 } list_s;
 
 int no_of_builtins(buiild_t builts[]);
