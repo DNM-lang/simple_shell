@@ -15,6 +15,7 @@
 #define MALLOC_ERROR "Unable to malloc space\n"
 #define FORK_ERROR "Unable to fork and create child process\n"
 #define PATH_ERROR "No such file or directory\n"
+#define PROMPT "simpleShell$ "
 extern char **environ;
 
 /**
