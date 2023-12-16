@@ -7,7 +7,7 @@
 
 int main(void)
 {
-	char *input, *fpath = NULL, **tokenz = tokens(input), path = get_env("PATH");
+	char *input, *fpath = NULL, **tokenz, *path = env_var("PATH");
 	int built_stat, child_stat, d = 0;
 	struct stat buffer;
 
@@ -20,6 +20,7 @@ int main(void)
 			free(input);
 			continue;
 		}
+		tokenz = tokens(input);
 		if (tokenz[0] == NULL)
 		{
 			free(tokenz);
@@ -35,7 +36,6 @@ int main(void)
 			continue;
 		if (built_stat == -1)
 			_exit(EXIT_SUCCESS);
-		path = env_var("PATH");
 		fpath = look_for_path(tokenz[0], fpath, path);
 		if (fpath == NULL)
 			fpath = tokenz[0];
@@ -44,7 +44,7 @@ int main(void)
 		child_stat = execute_comnd(fpath, tokenz);
 		if (child_stat == -1)
 			err_msg(2);
-		free_allc_me(tokenz, path, input, fpath, d)
+		free_allc_me(tokenz, path, input, fpath, d);
 	}
 	return (0);
 }

@@ -35,7 +35,7 @@ int exec_built_comnd(char **tokenz)
  * Return: no of built-in commands
  */
 
-int no_of_builtins(built_s builts[])
+int no_of_builtins(buiild_t builts[])
 {
 	unsigned int k = 0;
 
