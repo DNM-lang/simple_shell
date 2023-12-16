@@ -18,11 +18,14 @@ int exits_the_shell(void)
 int enviro_vars(void)
 {
 	unsigned int j = 0;
+	ssize_t write_results;
 
 	while (environ[j] != NULL)
 	{
-		write(STDOUT_FILENO, environ[j], _strlen(environ[j]));
-		write(STDOUT_FILENO, "\n", 1);
+		write_results = write(STDOUT_FILENO, environ[j], _strlen(environ[j]));
+		(void)write_results;
+		write_results = write(STDOUT_FILENO, "\n", 1);
+		(void)write_results;
 		j++;
 	}
 	return (0);

@@ -7,20 +7,19 @@
 
 int main(void)
 {
-	char *input, *fpath, **tokenz, path = get_env("PATH");
+	char *input, *fpath = NULL, **tokenz = tokens(input), path = get_env("PATH");
 	int built_stat, child_stat, d = 0;
 	struct stat buffer;
 
 	while (TRUE)
 	{
-		pliz_interact(STDIN_FILENO, buffer);
 		input = read_user_input(stdin);
+		pliz_interact(STDIN_FILENO, buffer);
 		if (_strcmp(input, "\n", 1) == 0)
 		{
 			free(input);
 			continue;
 		}
-		tokenz = tokens(input);
 		if (tokenz[0] == NULL)
 		{
 			free(tokenz);
@@ -42,7 +41,7 @@ int main(void)
 			fpath = tokenz[0];
 		else
 			d = 1;
-		child_stat = child(fpath, tokenz);
+		child_stat = execute_comnd(fpath, tokenz);
 		if (child_stat == -1)
 			err_msg(2);
 		free_allc_me(tokenz, path, input, fpath, d)

@@ -20,6 +20,7 @@ void pliz_interact(int fs, struct stat buffer)
 void _puts(char *s)
 {
 	unsigned int len = _strlen(s);
+	ssize_t write_results = write(STDOUT_FILENO, s, len);
 
-	write(STDOUT_FILENO, s, len);
+	(void)write_results;
 }
