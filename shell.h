@@ -10,12 +10,11 @@
 #include <sys/stat.h>
 
 #define TRUE 1
-#define PROMPT "$ "
+#define PROMPT "SimpleShell$ "
 #define BUFF 1024
 #define MALLOC_ERROR "Unable to malloc space\n"
 #define FORK_ERROR "Unable to fork and create child process\n"
 #define PATH_ERROR "No such file or directory\n"
-#define PROMPT "simpleShell$ "
 extern char **environ;
 
 /**
@@ -56,7 +55,6 @@ char *_strncpy(char *dest, char *src);
 int _strlen(char *s);
 char **tokens(char *s);
 char *read_user_input(FILE *fs);
-ssize_t customised_getline(FILE *fs, char **line, size_t *length)
 void pliz_interact(int fs, struct stat buffer);
 void _puts(char *s);
 int main(void);
